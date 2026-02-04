@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Seating Demo — Shout It!</title>
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0f1724; color: #e6eef8; display:flex; min-height:100vh; align-items:center; justify-content:center; }
+    .panel { width:720px; max-width:95%; background: linear-gradient(180deg,#111827 0%, #0b1220 100%); padding:20px; border-radius:12px; box-shadow:0 8px 30px rgba(2,6,23,0.7); }
+    .controls { display:flex; gap:10px; align-items:center; margin-bottom:16px; }
+    input[type=number] { width:80px; padding:8px; border-radius:8px; border:1px solid #1f2937; background:#071024; color:#e6eef8 }
+    button { padding:8px 12px; border-radius:8px; border:none; background:#ef4444; color:white; cursor:pointer }
+    .circle { position:relative; width:100%; height:520px; margin:0 auto; }
+    .seat { position:absolute; width:120px; height:40px; left:50%; top:50%; transform-origin: -50% -50%; display:flex; align-items:center; justify-content:center; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.06); border-radius:20px; }
+    .seat.teamA { background:linear-gradient(90deg,#ff7a7a,#ff4d4d); }
+    .seat.teamB { background:linear-gradient(90deg,#7ad1ff,#4db8ff); }
+    .seat.teamC { background:linear-gradient(90deg,#b8ff7a,#8cff4d); }
+    .legend { display:flex; gap:12px; margin-top:12px; align-items:center }
+    .dot { width:12px; height:12px; border-radius:3px; display:inline-block }
+    .note { color:#9aa5b1; font-size:0.95rem; margin-top:8px }
+  </style>
+</head>
+<body>
+  <div class="panel">
+    <h2>Round Table Seating — Shout It!</h2>
+    <div class="controls">
+      <label>Players per team (x):</label>
+      <input id="players" type="number" min="1" value="3">
+      <button id="render">Render Seating</button>
+      <button id="rotate">Start Rotation</button>
+      <button id="stop">Stop</button>
+    </div>
+
+    <div class="circle" id="circle"></div>
+    <div class="legend">
+      <div><span class="dot" style="background:linear-gradient(90deg,#ff7a7a,#ff4d4d)"></span> Team A</div>
+      <div><span class="dot" style="background:linear-gradient(90deg,#7ad1ff,#4db8ff)"></span> Team B</div>
+      <div><span class="dot" style="background:linear-gradient(90deg,#b8ff7a,#8cff4d)"></span> Team C</div>
+    </div>
+    <p class="note">Seating order follows: A1 → B1 → C1 → A2 → B2 → C2 → ... → Ax → Bx → Cx → back to A1.</p>
+  </div>
+
+  <script>
+    const circle = document.getElementById('circle');
+    const renderBtn = document.getElementById('render');
+    const rotateBtn = document.getElementById('rotate');
+    const stopBtn = document.getElementById('stop');
+    let raf = null;
+
+    function buildOrder(x, teams=['A','B','C']){
+      const order = [];
+      for(let i=1;i<=x;i++) for(const t of teams) order.push(t+i);
+      return order;
+    }
+
+    function render(x){
+      circle.innerHTML='';
+      const order = buildOrder(x);
+      const center = { x: circle.clientWidth/2, y: circle.clientHeight/2 };
+      const radius = Math.min(circle.clientWidth, circle.clientHeight)/2 - 80;
+      const n = order.length;
+      for(let i=0;i<n;i++){
+        const theta = (i / n) * Math.PI * 2 - Math.PI/2;
+        const el = document.createElement('div');
+        el.className = 'seat';
+        const team = order[i][0];
+        if(team==='A') el.classList.add('teamA');
+        if(team==='B') el.classList.add('teamB');
+        if(team==='C') el.classList.add('teamC');
+        el.style.left = (center.x + radius*Math.cos(theta)) + 'px';
+        el.style.top = (center.y + radius*Math.sin(theta)) + 'px';
+        el.style.transform = 'translate(-50%,-50%)';
+        el.textContent = order[i];
+        circle.appendChild(el);
+      }
+    }
+
+    renderBtn.addEventListener('click', ()=>{
+      const x = Math.max(1, parseInt(document.getElementById('players').value)||1);
+      render(x);
+    });
+
+    rotateBtn.addEventListener('click', ()=>{
+      let angle=0;
+      function step(){
+        angle += 0.005;
+        circle.style.transform = `rotate(${angle}rad)`;
+        raf = requestAnimationFrame(step);
+      }
+      if(!raf) step();
+    });
+
+    stopBtn.addEventListener('click', ()=>{ if(raf){ cancelAnimationFrame(raf); raf=null; circle.style.transform='rotate(0)'; } });
+
+    // initial
+    render(3);
+  </script>
+</body>
+</html>
