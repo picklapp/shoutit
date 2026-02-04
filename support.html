@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shout It! - Support</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            min-height: 100vh;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .app-icon {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(145deg, #2d2d44, #1a1a2e);
+            border-radius: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            border: 2px solid #e94560;
+        }
+
+        .app-icon span {
+            font-size: 48px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(90deg, #e94560, #ff6b6b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+        }
+
+        .tagline {
+            color: #a0a0a0;
+            font-size: 1.1rem;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .card h2 {
+            color: #e94560;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .card p {
+            color: #d0d0d0;
+            margin-bottom: 15px;
+        }
+
+        .contact-link {
+            display: inline-block;
+            color: #e94560;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .contact-link:hover {
+            color: #ff6b6b;
+        }
+
+        .faq-item {
+            margin-bottom: 25px;
+        }
+
+        .faq-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .faq-item h3 {
+            color: #ffffff;
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+        }
+
+        .faq-item p {
+            color: #b0b0b0;
+            margin-bottom: 0;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .feature {
+            text-align: center;
+            padding: 20px;
+            background: rgba(233, 69, 96, 0.1);
+            border-radius: 12px;
+            border: 1px solid rgba(233, 69, 96, 0.2);
+        }
+
+        .feature-icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .feature h4 {
+            color: #ffffff;
+            margin-bottom: 5px;
+        }
+
+        .feature p {
+            color: #a0a0a0;
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #707070;
+        }
+
+        footer a {
+            color: #e94560;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .container {
+                padding: 20px 15px;
+            }
+
+            .card {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="app-icon">
+                <span>🎭</span>
+            </div>
+            <h1>SHOUT IT!</h1>
+            <p class="tagline">The Ultimate Party Word Game</p>
+        </header>
+
+        <div class="card">
+            <h2>📱 About the App</h2>
+            <p>Shout It! is an exciting multiplayer word-guessing game perfect for parties, family gatherings, and game nights. Players take turns describing words while their teammates try to guess them before time runs out!</p>
+
+            <div class="features">
+                <div class="feature">
+                    <div class="feature-icon">👥</div>
+                    <h4>Multiplayer</h4>
+                    <p>Play with friends and family</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">📚</div>
+                    <h4>12 Topics</h4>
+                    <p>Various categories to choose</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">⏱️</div>
+                    <h4>Timed Rounds</h4>
+                    <p>Fast-paced excitement</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🎨</div>
+                    <h4>Themes</h4>
+                    <p>Customize your experience</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>💬 Contact Support</h2>
+            <p>Have questions, feedback, or need help? We'd love to hear from you!</p>
+            <p>Email us at: <a href="mailto:support@shoutitapp.com" class="contact-link">support@shoutitapp.com</a></p>
+            <p>We typically respond within 24-48 hours.</p>
+        </div>
+
+        <div class="card">
+            <h2>❓ Frequently Asked Questions</h2>
+
+            <div class="faq-item">
+                <h3>How do I play Shout It!?</h3>
+                <p>Split into teams, select a topic and difficulty, then take turns describing words to your teammates without saying the word itself. Tap "Got It" when they guess correctly or "Skip" to move on.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>How many players can play?</h3>
+                <p>Shout It! supports 2 or more teams, with any number of players per team. The more players, the more fun!</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>Can I play offline?</h3>
+                <p>Yes! Shout It! works completely offline once downloaded. No internet connection required during gameplay.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>How do I restore my purchases?</h3>
+                <p>Go to the game credits screen and tap "Restore Purchases" to restore any previously purchased game packs.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>The app isn't working properly. What should I do?</h3>
+                <p>Try closing and reopening the app. If the issue persists, please contact us at support@shoutitapp.com with details about your device and the problem you're experiencing.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>📋 System Requirements</h2>
+            <p>• iOS 12.0 or later</p>
+            <p>• Compatible with iPhone, iPad, and iPod touch</p>
+        </div>
+
+        <footer>
+            <p>&copy; 2024 Shout It! All rights reserved.</p>
+            <p style="margin-top: 10px;">
+                <a href="privacy.html">Privacy Policy</a> &nbsp;|&nbsp;
+                <a href="terms.html">Terms of Service</a>
+            </p>
+        </footer>
+    </div>
+</body>
+</html>
