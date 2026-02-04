@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shout It! - Support</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -12,10 +15,10 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(180deg, #0F0F1A 0%, #1A1A2E 100%);
             min-height: 100vh;
-            color: #ffffff;
+            color: #FFFFFF;
             line-height: 1.6;
         }
 
@@ -33,14 +36,16 @@
         .app-icon {
             width: 120px;
             height: 120px;
-            background: linear-gradient(145deg, #2d2d44, #1a1a2e);
+            background: linear-gradient(145deg, #16213E, #1C1C2E);
             border-radius: 24px;
             display: flex;
             align-items: center;
             justify-content: center;
             margin: 0 auto 20px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
-            border: 2px solid #e94560;
+            box-shadow:
+                0 0 25px rgba(231, 76, 60, 0.4),
+                0 10px 40px rgba(0, 0, 0, 0.5);
+            border: 3px solid #E74C3C;
         }
 
         .app-icon span {
@@ -49,52 +54,57 @@
 
         h1 {
             font-size: 2.5rem;
-            font-weight: 800;
-            background: linear-gradient(90deg, #e94560, #ff6b6b);
+            font-weight: 900;
+            background: linear-gradient(90deg, #F39C12, #E74C3C, #F39C12);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
             margin-bottom: 10px;
+            letter-spacing: 3px;
         }
 
         .tagline {
-            color: #a0a0a0;
+            color: #B8B8C8;
             font-size: 1.1rem;
+            font-weight: 500;
         }
 
         .card {
-            background: rgba(255, 255, 255, 0.05);
+            background: linear-gradient(135deg, #16213E, rgba(22, 33, 62, 0.8));
             border-radius: 16px;
             padding: 30px;
             margin-bottom: 30px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
+            border: 2px solid #2A2A40;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
         }
 
         .card h2 {
-            color: #e94560;
+            color: #F39C12;
             margin-bottom: 20px;
             font-size: 1.5rem;
+            font-weight: 700;
             display: flex;
             align-items: center;
             gap: 10px;
         }
 
         .card p {
-            color: #d0d0d0;
+            color: #B8B8C8;
             margin-bottom: 15px;
+            font-weight: 400;
         }
 
         .contact-link {
             display: inline-block;
-            color: #e94560;
+            color: #E74C3C;
             text-decoration: none;
             font-weight: 600;
-            transition: color 0.3s;
+            transition: all 0.3s;
         }
 
         .contact-link:hover {
-            color: #ff6b6b;
+            color: #F39C12;
+            text-shadow: 0 0 10px rgba(243, 156, 18, 0.5);
         }
 
         .faq-item {
@@ -106,14 +116,15 @@
         }
 
         .faq-item h3 {
-            color: #ffffff;
+            color: #FFFFFF;
             font-size: 1.1rem;
+            font-weight: 700;
             margin-bottom: 8px;
         }
 
         .faq-item p {
-            color: #b0b0b0;
-            margin-bottom: 0;
+            color: #B8B8C8;
+            margin-bottom: 8px;
         }
 
         .features {
@@ -126,9 +137,15 @@
         .feature {
             text-align: center;
             padding: 20px;
-            background: rgba(233, 69, 96, 0.1);
+            background: linear-gradient(135deg, rgba(231, 76, 60, 0.15), rgba(231, 76, 60, 0.05));
             border-radius: 12px;
-            border: 1px solid rgba(233, 69, 96, 0.2);
+            border: 2px solid rgba(231, 76, 60, 0.3);
+            transition: all 0.3s;
+        }
+
+        .feature:hover {
+            border-color: #E74C3C;
+            box-shadow: 0 0 20px rgba(231, 76, 60, 0.3);
         }
 
         .feature-icon {
@@ -137,12 +154,13 @@
         }
 
         .feature h4 {
-            color: #ffffff;
+            color: #FFFFFF;
             margin-bottom: 5px;
+            font-weight: 700;
         }
 
         .feature p {
-            color: #a0a0a0;
+            color: #8888A0;
             font-size: 0.9rem;
             margin: 0;
         }
@@ -151,17 +169,42 @@
             text-align: center;
             margin-top: 50px;
             padding-top: 30px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: #707070;
+            border-top: 2px solid #2A2A40;
+            color: #6B6B80;
         }
 
         footer a {
-            color: #e94560;
+            color: #E74C3C;
             text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
         }
 
         footer a:hover {
-            text-decoration: underline;
+            color: #F39C12;
+        }
+
+        /* Balatro-style button */
+        .btn {
+            display: inline-block;
+            background: linear-gradient(180deg, #E74C3C, rgba(231, 76, 60, 0.8));
+            color: #FFFFFF;
+            padding: 14px 32px;
+            border-radius: 12px;
+            font-weight: 700;
+            text-decoration: none;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow:
+                0 0 15px rgba(231, 76, 60, 0.5),
+                0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow:
+                0 0 25px rgba(231, 76, 60, 0.6),
+                0 6px 12px rgba(0, 0, 0, 0.4);
         }
 
         @media (max-width: 600px) {
@@ -186,7 +229,7 @@
                 <span>🎭</span>
             </div>
             <h1>SHOUT IT!</h1>
-            <p class="tagline">The Ultimate Party Word Game</p>
+            <p class="tagline">♠ GUESS • ACT • WIN ♥</p>
         </header>
 
         <div class="card">
@@ -229,9 +272,9 @@
 
             <div class="faq-item">
                 <h3>How do I play Shout It!?</h3>
-                    <p>Split into teams, select a topic and difficulty, then take turns describing words to your teammates without saying the word itself. Tap "Got It" when they guess correctly or "Skip" to move on.</p>
-                    <p>Seating: for the best flow, players should sit alternately around the table in the following pattern: player 1 of Team A → player 1 of Team B → player 1 of Team C → player 2 of Team A → player 2 of Team B → player 2 of Team C → ... → player x of Team C → back to player 1 of Team A. With x players per team the order is: A1, B1, C1, A2, B2, C2, …, Ax, Bx, Cx.</p>
-                    <p>Use the <a href="seating.html">seating demo</a> to visualize and generate the round-table order for any number of players per team.</p>
+                <p>Split into teams, select a topic and difficulty, then take turns describing words to your teammates without saying the word itself. Tap "Got It" when they guess correctly or "Skip" to move on.</p>
+                <p>Seating: for the best flow, players should sit alternately around the table in the following pattern: player 1 of Team A → player 1 of Team B → player 1 of Team C → player 2 of Team A → player 2 of Team B → player 2 of Team C → ... → player x of Team C → back to player 1 of Team A.</p>
+                <p>Use our <a href="seating.html" class="contact-link">Seating Arrangement Tool</a> to visualize the round-table seating order for any number of players per team.</p>
             </div>
 
             <div class="faq-item">
@@ -262,7 +305,7 @@
         </div>
 
         <footer>
-            <p>&copy; 2024 Shout It! All rights reserved.</p>
+            <p>&copy; 2025 Shout It! All rights reserved.</p>
             <p style="margin-top: 10px;">
                 <a href="privacy.html">Privacy Policy</a> &nbsp;|&nbsp;
                 <a href="terms.html">Terms of Service</a>
